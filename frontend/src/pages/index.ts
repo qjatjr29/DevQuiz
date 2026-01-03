@@ -1,0 +1,9 @@
+export { default as MainPage } from "./MainPage";
+export { default as KnowledgePage } from "./KnowledgePage";
+export { default as QuizPage } from "./QuizPage";
+export { default as ResultPage } from "./ResultPage";
+export { default as LoginPage } from "./LoginPage";
+export { default as RankingPage } from "./RankingPage";
+export { default as MyPage } from "./MyPage";
+export { default as RecordsPage } from "./RecordsPage";
+export { default as NotFound } from "./NotFound";

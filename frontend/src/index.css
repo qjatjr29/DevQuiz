@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 246 246 248;
+    --foreground: 15 23 42;
+
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+
+    --primary: 258 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 10%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 258 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 84% 44%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 258 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom DevQuiz colors */
+    --surface: 255 255 255;
+    --surface-highlight: 240 5% 96%;
+    --glass-bg: 255 255 255 / 0.8;
+    --glass-border: 0 0 0 / 0.1;
+    --neon-glow: 258 85% 55%;
+  }
+
+  .dark {
+    --background: 251 37% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 250 30% 14%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 250 30% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 258 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 250 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 250 20% 18%;
+    --muted-foreground: 250 20% 70%;
+
+    --accent: 258 85% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --success: 160 84% 44%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 250 20% 18%;
+    --input: 250 20% 18%;
+    --ring: 258 85% 55%;
+
+    /* Custom DevQuiz dark colors */
+    --surface: 250 30% 14%;
+    --surface-highlight: 253 33% 22%;
+    --glass-bg: 30 25 51 / 0.6;
+    --glass-border: 255 255 255 / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  .font-display {
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  .font-body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+}
+
+@layer components {
+  /* Glass panel effect */
+  .glass-panel {
+    @apply backdrop-blur-xl;
+    background: hsl(var(--glass-bg));
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.5);
+  }
+
+  .neon-glow-sm {
+    box-shadow: 0 0 10px -3px hsl(var(--primary) / 0.4);
+  }
+
+  /* Gradient blob background */
+  .bg-gradient-blob {
+    background: radial-gradient(
+      circle at 50% 50%,
+      hsl(var(--primary) / 0.25),
+      transparent 70%
+    );
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+
+  /* Hide scrollbar for card swiping */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Progress circle animation */
+  .progress-circle {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  /* Ambient glow decorations */
+  .ambient-glow {
+    @apply pointer-events-none fixed rounded-full blur-[100px] opacity-40;
+  }
+
+  .ambient-glow-primary {
+    @apply bg-primary/20;
+  }
+
+  .ambient-glow-purple {
+    background: hsl(270 60% 50% / 0.2);
+  }
+}
+
+@layer utilities {
+  /* Smooth page transitions */
+  .page-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02];
+  }
+
+  /* Button press effect */
+  .btn-press {
+    @apply active:scale-[0.98] transition-transform;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-400;
+  }
+
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Slide up animation */
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pulse glow animation */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px -3px hsl(var(--primary) / 0.7);
+    }
+  }
+
+  /* Card swipe animation helper */
+  .swipe-card {
+    @apply transition-all duration-300;
+  }
+}
